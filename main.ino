@@ -2,6 +2,7 @@
 #include <string.h>
 #include "DroneWebserver.h"
 #include "MotionService.h"
+#include "DistanceService.h"
 //DroneWebserver.ino does get included automatically by arduino IDE
 
 void setup()
@@ -11,6 +12,8 @@ void setup()
     setupMotionSensors();
     delay(1000);
     setupDroneWebserver();
+    delay(1000);
+    setupDistanceSensors();
     delay(1000);
 }
 
@@ -23,6 +26,7 @@ void loop()
     {
         handleWebClients();
         readMotionSensors();
+        readDistanceSensors();
     }
 
     i++;
